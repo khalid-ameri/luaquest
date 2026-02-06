@@ -1,0 +1,15 @@
+name: Lua CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Lua
+        run: sudo apt-get install lua5.4 -y
+      - name: Run tests
+        run: lua tests/test_game.lua
